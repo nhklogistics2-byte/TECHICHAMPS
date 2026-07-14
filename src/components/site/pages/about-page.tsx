@@ -81,14 +81,13 @@ export function AboutPage() {
         description="We're a small, senior team of strategists, designers, engineers, and marketers who pick a handful of partners each quarter — so we can do our best work and stay accountable to outcomes."
         primaryCta={{ label: "Work With Us" }}
         secondaryCta={{ label: "Meet the Team" }}
-        heroVariant="about"
-        laptopHeadline="Built to Be\nYour Growth Partner."
-        laptopSubtext="Our Story"
-        phoneMetricLabel="Client Retention"
-        phoneMetricValue="94%"
-        stat1={{ label: "Team", value: "Senior" }}
-        stat2={{ label: "Retention", value: "94%" }}
-        stat3={{ label: "Years", value: "6+" }}
+        laptopHeadline="Building Experiences.\nDelivering Results."
+        laptopSubtext="Let's Build Together"
+        phoneMetricLabel="Revenue Growth"
+        phoneMetricValue="+240%"
+        stat1={{ label: "Revenue Growth", value: "250%" }}
+        stat2={{ label: "Higher Engagement", value: "70%" }}
+        stat3={{ label: "Operational Efficiency", value: "45%" }}
       />
 
       {/* Story section */}

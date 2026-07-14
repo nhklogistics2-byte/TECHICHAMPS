@@ -33,7 +33,6 @@ export function ServiceDetailPage({ service }: { service: ServiceData }) {
         description={service.heroDescription}
         primaryCta={{ label: "Book a Free Consultation" }}
         secondaryCta={{ label: "View Our Work" }}
-        heroVariant="service"
         laptopHeadline={heroContent.laptopHeadline}
         laptopSubtext={heroContent.laptopSubtext}
         phoneMetricLabel={heroContent.phoneMetricLabel}
@@ -308,80 +307,16 @@ function splitTitle(headline: string): { title: string; highlight?: string } {
   return { title: headline };
 }
 
-// Per-service hero customization
-function getServiceHeroContent(slug: string) {
-  const map: Record<string, {
-    laptopHeadline: string;
-    laptopSubtext: string;
-    phoneMetricLabel: string;
-    phoneMetricValue: string;
-    stat1: { label: string; value: string };
-    stat2: { label: string; value: string };
-    stat3: { label: string; value: string };
-  }> = {
-    "logo-design": {
-      laptopHeadline: "Identity That\nEarns Trust.",
-      laptopSubtext: "View Brand Work",
-      phoneMetricLabel: "Brand Recall",
-      phoneMetricValue: "+38%",
-      stat1: { label: "Recall", value: "+38%" },
-      stat2: { label: "Value", value: "2.4x" },
-      stat3: { label: "Lifespan", value: "5yr" },
-    },
-    "web-development": {
-      laptopHeadline: "Sites That\nConvert & Scale.",
-      laptopSubtext: "View Web Work",
-      phoneMetricLabel: "Conversion",
-      phoneMetricValue: "+156%",
-      stat1: { label: "Conversion", value: "+156%" },
-      stat2: { label: "Load", value: "<1.5s" },
-      stat3: { label: "Lighthouse", value: "95+" },
-    },
-    "mobile-app-development": {
-      laptopHeadline: "Apps Users\nOpen Daily.",
-      laptopSubtext: "View App Work",
-      phoneMetricLabel: "App Rating",
-      phoneMetricValue: "4.8★",
-      stat1: { label: "Rating", value: "4.8★" },
-      stat2: { label: "Active", value: "+220%" },
-      stat3: { label: "No-show", value: "−58%" },
-    },
-    "digital-marketing": {
-      laptopHeadline: "Marketing That\nCompounds.",
-      laptopSubtext: "View Marketing Work",
-      phoneMetricLabel: "Organic Traffic",
-      phoneMetricValue: "+82%",
-      stat1: { label: "Traffic", value: "+82%" },
-      stat2: { label: "Cost/Lead", value: "−31%" },
-      stat3: { label: "ROI", value: "3.6x" },
-    },
-    "ai-automation": {
-      laptopHeadline: "AI That Cuts\nCost-to-Serve.",
-      laptopSubtext: "View AI Work",
-      phoneMetricLabel: "Hours Saved",
-      phoneMetricValue: "184h/mo",
-      stat1: { label: "Saved", value: "184h" },
-      stat2: { label: "Response", value: "−42%" },
-      stat3: { label: "Accuracy", value: "+68%" },
-    },
-    "brand-strategy": {
-      laptopHeadline: "Strategy That\nAligns Teams.",
-      laptopSubtext: "View Strategy Work",
-      phoneMetricLabel: "Team Alignment",
-      phoneMetricValue: "100%",
-      stat1: { label: "Alignment", value: "100%" },
-      stat2: { label: "Roadmap", value: "12mo" },
-      stat3: { label: "Decisions", value: "3x" },
-    },
-  };
-  return map[slug] ?? {
+// Per-service hero — all use the same reference laptop content
+function getServiceHeroContent(_slug: string) {
+  return {
     laptopHeadline: "Building Experiences.\nDelivering Results.",
     laptopSubtext: "Let's Build Together",
-    phoneMetricLabel: "Monthly Growth",
-    phoneMetricValue: "+156%",
-    stat1: { label: "Conversion", value: "3.8%" },
-    stat2: { label: "Visitors", value: "48K" },
-    stat3: { label: "Revenue", value: "$92K" },
+    phoneMetricLabel: "Revenue Growth",
+    phoneMetricValue: "+240%",
+    stat1: { label: "Revenue Growth", value: "250%" },
+    stat2: { label: "Higher Engagement", value: "70%" },
+    stat3: { label: "Operational Efficiency", value: "45%" },
   };
 }
 

@@ -13,7 +13,6 @@ type HeroSectionProps = {
   description: string;
   primaryCta?: { label: string; action?: () => void };
   secondaryCta?: { label: string; href?: string; action?: () => void };
-  heroVariant?: "home" | "work" | "service" | "process" | "about" | "reviews" | "faq" | "contact";
   laptopHeadline?: string;
   laptopSubtext?: string;
   phoneMetricLabel?: string;
@@ -33,7 +32,6 @@ export function HeroSection({
   description,
   primaryCta,
   secondaryCta,
-  heroVariant = "home",
   laptopHeadline,
   laptopSubtext,
   phoneMetricLabel,
@@ -174,7 +172,6 @@ export function HeroSection({
 
         {/* Right column — static hero visual */}
         <HeroVisual
-          variant={heroVariant}
           laptopHeadline={laptopHeadline}
           laptopSubtext={laptopSubtext}
           phoneMetricLabel={phoneMetricLabel}

@@ -119,14 +119,13 @@ export function ReviewsPage() {
         description="Real words from real clients — verified across 200+ engagements over the past six years. We let the results speak."
         primaryCta={{ label: "Become Our Next Success Story" }}
         secondaryCta={{ label: "View Our Work" }}
-        heroVariant="reviews"
-        laptopHeadline="200+ Happy\nClients & Counting."
-        laptopSubtext="Read Reviews"
-        phoneMetricLabel="Avg. Rating"
-        phoneMetricValue="4.9/5"
-        stat1={{ label: "Rating", value: "4.9★" }}
-        stat2={{ label: "Reviews", value: "200+" }}
-        stat3={{ label: "Repeat", value: "94%" }}
+        laptopHeadline="Building Experiences.\nDelivering Results."
+        laptopSubtext="Let's Build Together"
+        phoneMetricLabel="Revenue Growth"
+        phoneMetricValue="+240%"
+        stat1={{ label: "Revenue Growth", value: "250%" }}
+        stat2={{ label: "Higher Engagement", value: "70%" }}
+        stat3={{ label: "Operational Efficiency", value: "45%" }}
       />
 
       {/* Stats bar */}

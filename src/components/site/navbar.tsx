@@ -68,23 +68,14 @@ export function Navbar() {
       )}
     >
       <div className="container-px flex h-16 items-center justify-between md:h-20">
-        {/* Logo */}
+        {/* Logo — text only, matching reference */}
         <button
           onClick={() => navigate({ name: "home" })}
-          className="group flex items-center gap-2.5 focus-premium rounded-md"
+          className="group flex items-center focus-premium rounded-md"
           aria-label="Techi Champs home"
         >
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-deep text-white shadow-[0_4px_18px_-6px_rgba(126,58,242,0.6)]">
-            <span className="font-serif-display text-lg font-bold">T</span>
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-cream ring-2 ring-navy-deep" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-serif-display text-base font-semibold text-cream">
-              Techi Champs
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-gold/80">
-              Digital Growth Studio
-            </span>
+          <span className="font-sans text-lg font-semibold tracking-tight text-cream transition-colors group-hover:text-gold-soft sm:text-xl">
+            Techi Champs
           </span>
         </button>
 
@@ -220,8 +211,8 @@ export function Navbar() {
             className="w-[88vw] max-w-[420px] border-border/60 bg-navy-deep p-0 text-cream"
           >
             <SheetHeader className="border-b border-white/10 px-6 py-5 text-left">
-              <SheetTitle className="font-serif-display text-xl text-cream">
-                Menu
+              <SheetTitle className="font-sans text-xl font-semibold text-cream">
+                Techi Champs
               </SheetTitle>
             </SheetHeader>
             <div className="flex h-[calc(100%-80px)] flex-col overflow-y-auto px-6 py-6 scrollbar-premium">

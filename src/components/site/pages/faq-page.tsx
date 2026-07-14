@@ -89,14 +89,13 @@ export function FaqPage() {
         description="Everything you might want to know before booking a call. Still have a question? Just ask us directly — we reply within one business day."
         primaryCta={{ label: "Ask Your Question" }}
         secondaryCta={{ label: "View Services" }}
-        heroVariant="faq"
-        laptopHeadline="Got Questions?\nWe Have Answers."
-        laptopSubtext="Browse FAQ"
-        phoneMetricLabel="Response Time"
-        phoneMetricValue="< 24h"
-        stat1={{ label: "FAQs", value: "20+" }}
-        stat2={{ label: "Updated", value: "Monthly" }}
-        stat3={{ label: "Helpful", value: "98%" }}
+        laptopHeadline="Building Experiences.\nDelivering Results."
+        laptopSubtext="Let's Build Together"
+        phoneMetricLabel="Revenue Growth"
+        phoneMetricValue="+240%"
+        stat1={{ label: "Revenue Growth", value: "250%" }}
+        stat2={{ label: "Higher Engagement", value: "70%" }}
+        stat3={{ label: "Operational Efficiency", value: "45%" }}
       />
 
       <FaqSection />

@@ -107,14 +107,13 @@ export function ContactPage() {
           document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
         }}}
         secondaryCta={{ label: "View Services" }}
-        heroVariant="contact"
-        laptopHeadline="Let's Talk.\nWe're Listening."
-        laptopSubtext="Get in Touch"
-        phoneMetricLabel="Reply Time"
-        phoneMetricValue="< 24h"
-        stat1={{ label: "Response", value: "< 24h" }}
-        stat2={{ label: "Confidential", value: "100%" }}
-        stat3={{ label: "Obligation", value: "Free" }}
+        laptopHeadline="Building Experiences.\nDelivering Results."
+        laptopSubtext="Let's Build Together"
+        phoneMetricLabel="Revenue Growth"
+        phoneMetricValue="+240%"
+        stat1={{ label: "Revenue Growth", value: "250%" }}
+        stat2={{ label: "Higher Engagement", value: "70%" }}
+        stat3={{ label: "Operational Efficiency", value: "45%" }}
       />
 
       {/* Contact form + info */}

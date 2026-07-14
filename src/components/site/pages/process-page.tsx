@@ -108,14 +108,13 @@ export function ProcessPage() {
         description="Six stages, reviewed every week. You always know what's happening, what's next, and what's blocked — no black boxes, no surprises."
         primaryCta={{ label: "Book a Free Consultation" }}
         secondaryCta={{ label: "View Our Work" }}
-        heroVariant="process"
-        laptopHeadline="Six Steps.\nOne Clear Path."
-        laptopSubtext="See the Process"
-        phoneMetricLabel="Avg. Delivery"
-        phoneMetricValue="10 wks"
-        stat1={{ label: "Stages", value: "6" }}
-        stat2={{ label: "Reviews", value: "Weekly" }}
-        stat3={{ label: "On-time", value: "98%" }}
+        laptopHeadline="Building Experiences.\nDelivering Results."
+        laptopSubtext="Let's Build Together"
+        phoneMetricLabel="Revenue Growth"
+        phoneMetricValue="+240%"
+        stat1={{ label: "Revenue Growth", value: "250%" }}
+        stat2={{ label: "Higher Engagement", value: "70%" }}
+        stat3={{ label: "Operational Efficiency", value: "45%" }}
       />
 
       <ProcessSection />

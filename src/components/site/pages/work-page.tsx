@@ -21,14 +21,13 @@ export function WorkPage() {
         description="We don't chase awards — we chase outcomes. Browse our recent engagements across fintech, healthcare, SaaS, retail, and logistics."
         primaryCta={{ label: "Start Your Project" }}
         secondaryCta={{ label: "View Services" }}
-        heroVariant="work"
-        laptopHeadline="Selected Work.\nReal Outcomes."
-        laptopSubtext="View Case Studies"
-        phoneMetricLabel="Avg. ROI"
-        phoneMetricValue="3.6x"
-        stat1={{ label: "Projects", value: "320+" }}
-        stat2={{ label: "Industries", value: "25+" }}
-        stat3={{ label: "Avg. ROI", value: "3.6x" }}
+        laptopHeadline="Building Experiences.\nDelivering Results."
+        laptopSubtext="Let's Build Together"
+        phoneMetricLabel="Revenue Growth"
+        phoneMetricValue="+240%"
+        stat1={{ label: "Revenue Growth", value: "250%" }}
+        stat2={{ label: "Higher Engagement", value: "70%" }}
+        stat3={{ label: "Operational Efficiency", value: "45%" }}
       />
 
       {/* Case studies full list */}

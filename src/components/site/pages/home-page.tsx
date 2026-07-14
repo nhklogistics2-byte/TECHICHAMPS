@@ -20,14 +20,13 @@ export function HomePage() {
         description="Techi Champs partners with ambitious businesses to grow through branding, websites, mobile applications, digital marketing, and AI automation — engineered to convert and built to scale."
         primaryCta={{ label: "Book a Free Consultation" }}
         secondaryCta={{ label: "View Our Work" }}
-        heroVariant="home"
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"
-        phoneMetricLabel="Monthly Growth"
-        phoneMetricValue="+156%"
-        stat1={{ label: "Conversion", value: "3.8%" }}
-        stat2={{ label: "Visitors", value: "48K" }}
-        stat3={{ label: "Revenue", value: "$92K" }}
+        phoneMetricLabel="Revenue Growth"
+        phoneMetricValue="+240%"
+        stat1={{ label: "Revenue Growth", value: "250%" }}
+        stat2={{ label: "Higher Engagement", value: "70%" }}
+        stat3={{ label: "Operational Efficiency", value: "45%" }}
         showStats
         stats={[
           { value: "200", suffix: "+", label: "Happy Clients" },

@@ -99,19 +99,11 @@ export function Footer() {
           <div>
             <button
               onClick={() => navigate({ name: "home" })}
-              className="flex items-center gap-2.5"
+              className="flex items-center"
               aria-label="Techi Champs home"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-deep text-white">
-                <span className="font-serif-display text-lg font-bold">T</span>
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-serif-display text-base font-semibold text-cream">
-                  Techi Champs
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.22em] text-gold/80">
-                  Digital Growth Studio
-                </span>
+              <span className="font-sans text-xl font-semibold tracking-tight text-cream">
+                Techi Champs
               </span>
             </button>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/55 text-pretty">

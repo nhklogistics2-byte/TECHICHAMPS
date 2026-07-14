@@ -5,11 +5,10 @@ import { TrendingUp } from "lucide-react";
 
 /**
  * Static hero visual — laptop showing a mini Techi Champs website + phone showing analytics.
- * No cursor parallax, no floating panels. Just the laptop + phone composition.
- * Content can be customized per-page via props.
+ * Matches the reference image: dark website on laptop with headline, purple CTA, and 3 stats.
+ * Phone shows "Analytics that drive decisions" with a purple growth chart.
  */
 type HeroVisualProps = {
-  variant?: "home" | "work" | "service" | "process" | "about" | "reviews" | "faq" | "contact";
   laptopHeadline?: string;
   laptopSubtext?: string;
   phoneMetricLabel?: string;
@@ -20,14 +19,13 @@ type HeroVisualProps = {
 };
 
 const DEFAULT_PROPS: Required<HeroVisualProps> = {
-  variant: "home",
   laptopHeadline: "Building Experiences.\nDelivering Results.",
   laptopSubtext: "Let's Build Together",
-  phoneMetricLabel: "Monthly Growth",
-  phoneMetricValue: "+156%",
-  stat1: { label: "Conversion", value: "3.8%" },
-  stat2: { label: "Visitors", value: "48K" },
-  stat3: { label: "Revenue", value: "$92K" },
+  phoneMetricLabel: "Revenue Growth",
+  phoneMetricValue: "+240%",
+  stat1: { label: "Revenue Growth", value: "250%" },
+  stat2: { label: "Higher Engagement", value: "70%" },
+  stat3: { label: "Operational Efficiency", value: "45%" },
 };
 
 export function HeroVisual(props: HeroVisualProps) {
@@ -39,14 +37,14 @@ export function HeroVisual(props: HeroVisualProps) {
       initial={reduce ? false : { opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mx-auto aspect-[5/4] w-full max-w-[560px]"
+      className="relative mx-auto aspect-[5/4] w-full max-w-[580px]"
     >
-      {/* Studio backdrop — subtle, no animation */}
+      {/* Subtle ambient glow — static, no animation */}
       <div className="pointer-events-none absolute -right-8 top-8 h-40 w-40 rounded-full bg-gold/20 blur-[80px]" />
       <div className="pointer-events-none absolute -left-10 bottom-10 h-40 w-40 rounded-full bg-blue-accent/15 blur-[90px]" />
 
       {/* Laptop — centered, shows the Techi Champs website */}
-      <div className="absolute left-1/2 top-[8%] z-30 w-[82%] -translate-x-1/2">
+      <div className="absolute left-1/2 top-[6%] z-30 w-[85%] -translate-x-1/2">
         <LaptopMockup
           headline={p.laptopHeadline}
           subtext={p.laptopSubtext}
@@ -56,8 +54,8 @@ export function HeroVisual(props: HeroVisualProps) {
         />
       </div>
 
-      {/* Phone — right side, shows analytics */}
-      <div className="absolute right-[0%] top-[30%] z-40 w-[24%]">
+      {/* Phone — right side, overlapping laptop slightly */}
+      <div className="absolute right-[-2%] top-[28%] z-40 w-[22%]">
         <PhoneMockup
           label={p.phoneMetricLabel}
           value={p.phoneMetricValue}
@@ -72,7 +70,7 @@ export function HeroVisual(props: HeroVisualProps) {
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
           </span>
           <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-cream/80">
-            Live · Techi Champs Studio
+            Live · Techi Champs
           </span>
         </div>
       </div>
@@ -96,109 +94,79 @@ function LaptopMockup({
   const lines = headline.split("\n");
   return (
     <div className="relative">
-      {/* Screen */}
-      <div className="relative overflow-hidden rounded-[10px] border border-white/15 bg-navy-deep shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
-        {/* Browser top bar */}
-        <div className="flex items-center gap-1.5 border-b border-white/10 bg-navy px-3 py-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-cream/30" />
-          <span className="h-1.5 w-1.5 rounded-full bg-cream/30" />
-          <span className="h-1.5 w-1.5 rounded-full bg-cream/30" />
-          <div className="ml-2 flex-1">
-            <div className="h-2.5 w-1/2 rounded-full bg-cream/10" />
-          </div>
-        </div>
-
-        {/* Website content — mini Techi Champs site */}
-        <div className="relative aspect-[16/10] bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-3">
-          {/* Site nav bar */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <div className="flex h-3 w-3 items-center justify-center rounded-sm bg-gold">
-                <span className="text-[6px] font-bold text-white">T</span>
-              </div>
-              <div className="h-1.5 w-12 rounded-full bg-cream/50" />
-            </div>
-            <div className="flex gap-1.5">
-              <div className="h-1.5 w-5 rounded-full bg-cream/20" />
-              <div className="h-1.5 w-5 rounded-full bg-cream/20" />
-              <div className="h-1.5 w-5 rounded-full bg-cream/20" />
-              <div className="h-3 w-8 rounded-full bg-gold" />
+      {/* Laptop screen — realistic with silver/gray frame */}
+      <div className="relative overflow-hidden rounded-[12px] border-[6px] border-[#3a3a40] bg-[#2a2a30] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.05)]">
+        {/* Screen content — mini Techi Champs website */}
+        <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-soft">
+          {/* === Website nav bar === */}
+          <div className="flex items-center justify-between border-b border-white/10 bg-navy-deep/80 px-3 py-2 backdrop-blur">
+            <span className="font-sans text-[10px] font-semibold text-cream">
+              Techi Champs
+            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-[7px] text-cream/60">Solutions</span>
+              <span className="text-[7px] text-cream/60">Industries</span>
+              <span className="text-[7px] text-cream/60">Resources</span>
+              <span className="text-[7px] text-cream/60">Company</span>
+              <span className="rounded-full bg-gold px-2 py-0.5 text-[7px] font-semibold text-white">
+                Contact Us
+              </span>
             </div>
           </div>
 
-          {/* Hero headline */}
-          <div className="mt-4">
-            <div className="h-1.5 w-10 rounded-full bg-gold/70" />
-            <div className="mt-2 space-y-1.5">
+          {/* === Hero content === */}
+          <div className="px-4 pt-4">
+            {/* Headline */}
+            <div className="space-y-1">
               {lines.map((line, i) => (
                 <div
                   key={i}
-                  className={`h-3 rounded-full ${
-                    i === 0
-                      ? "w-[85%] bg-cream/85"
-                      : i === 1
-                      ? "w-[70%] bg-gradient-to-r from-gold to-gold-soft"
-                      : "w-[55%] bg-cream/40"
+                  className={`text-[11px] font-bold leading-tight ${
+                    i === 0 ? "text-cream" : "text-cream"
                   }`}
-                />
+                  style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
+                >
+                  {line}
+                </div>
               ))}
+            </div>
+
+            {/* Subheadline */}
+            <div className="mt-1.5 h-1.5 w-[90%] rounded-full bg-cream/30" />
+            <div className="mt-1 h-1.5 w-[75%] rounded-full bg-cream/20" />
+
+            {/* CTA button */}
+            <div className="mt-3 inline-flex items-center rounded-full bg-gold px-3 py-1.5">
+              <span className="text-[8px] font-semibold text-white">{subtext}</span>
             </div>
           </div>
 
-          {/* CTA buttons */}
-          <div className="mt-3 flex gap-1.5">
-            <div className="h-3.5 w-16 rounded-full bg-gold" />
-            <div className="h-3.5 w-12 rounded-full border border-cream/20 bg-cream/5" />
-          </div>
-
-          {/* Stats row at bottom — like the reference image */}
-          <div className="absolute bottom-3 left-3 right-3 grid grid-cols-3 gap-1.5">
-            <MiniStat label={stat1.label} value={stat1.value} />
-            <MiniStat label={stat2.label} value={stat2.value} />
-            <MiniStat label={stat3.label} value={stat3.value} highlight />
+          {/* === Stats row at bottom === */}
+          <div className="absolute bottom-3 left-3 right-3 grid grid-cols-3 gap-2 border-t border-white/10 pt-2.5">
+            <StatBlock value={stat1.value} label={stat1.label} />
+            <StatBlock value={stat2.value} label={stat2.label} />
+            <StatBlock value={stat3.value} label={stat3.label} />
           </div>
         </div>
       </div>
 
-      {/* Laptop base */}
-      <div className="relative mx-auto h-1.5 w-[108%] -translate-x-[3.5%] rounded-b-[6px] rounded-t-[2px] bg-gradient-to-b from-white/20 to-white/5">
-        <div className="absolute left-1/2 top-0 h-1 w-12 -translate-x-1/2 rounded-b-sm bg-navy-deep" />
-      </div>
-
-      {/* Subtext tag */}
-      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-1 text-[9px] font-semibold text-white">
-        {subtext}
+      {/* Laptop base — silver/gray metallic */}
+      <div className="relative mx-auto h-2 w-[112%] -translate-x-[6%] rounded-b-[8px] rounded-t-[2px] bg-gradient-to-b from-[#4a4a52] via-[#3a3a40] to-[#2a2a30] shadow-[0_4px_12px_-2px_rgba(0,0,0,0.4)]">
+        {/* Trackpad indent */}
+        <div className="absolute left-1/2 top-0 h-1 w-14 -translate-x-1/2 rounded-b-sm bg-[#1a1a20]" />
       </div>
     </div>
   );
 }
 
-function MiniStat({
-  label,
-  value,
-  highlight,
-}: {
-  label: string;
-  value: string;
-  highlight?: boolean;
-}) {
+function StatBlock({ value, label }: { value: string; label: string }) {
   return (
-    <div
-      className={`rounded-md border px-1.5 py-1 ${
-        highlight
-          ? "border-gold/40 bg-gold/10"
-          : "border-white/10 bg-white/[0.03]"
-      }`}
-    >
-      <div className="text-[6px] uppercase tracking-wide text-cream/50">
-        {label}
-      </div>
-      <div
-        className={`text-[10px] font-semibold ${
-          highlight ? "text-gold" : "text-cream/90"
-        }`}
-      >
+    <div className="text-center">
+      <div className="text-[14px] font-bold leading-none text-gold">
         {value}
+      </div>
+      <div className="mt-0.5 text-[6px] leading-tight text-cream/60">
+        {label}
       </div>
     </div>
   );
@@ -206,12 +174,12 @@ function MiniStat({
 
 function PhoneMockup({ label, value }: { label: string; value: string }) {
   return (
-    <div className="relative overflow-hidden rounded-[18px] border border-white/15 bg-navy-deep p-1.5 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.7)]">
-      <div className="relative aspect-[9/18] overflow-hidden rounded-[12px] bg-gradient-to-b from-navy to-navy-deep">
+    <div className="relative overflow-hidden rounded-[16px] border-[3px] border-[#2a2a30] bg-[#1a1a20] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.7)]">
+      <div className="relative aspect-[9/18] overflow-hidden rounded-[8px] bg-gradient-to-b from-navy to-navy-deep">
         {/* Notch */}
         <div className="absolute left-1/2 top-1.5 h-1 w-8 -translate-x-1/2 rounded-full bg-cream/15" />
 
-        {/* App content — analytics dashboard */}
+        {/* App content — analytics */}
         <div className="px-2 pt-5">
           <div className="flex items-center justify-between">
             <div>
@@ -221,20 +189,20 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
             <div className="h-4 w-4 rounded-full bg-gold/80" />
           </div>
 
+          {/* Analytics card */}
           <div className="mt-2 rounded-md border border-gold/30 bg-gold/10 p-1.5">
-            <div className="flex items-center justify-between">
-              <span className="text-[6px] uppercase tracking-wide text-gold-soft">
-                {label}
-              </span>
-              <TrendingUp className="h-2 w-2 text-gold" />
+            <div className="text-[7px] font-semibold text-cream">
+              Analytics that drive decisions
             </div>
-            <div className="mt-0.5 text-[12px] font-semibold text-cream">
-              {value}
+            <div className="mt-1 flex items-baseline gap-1">
+              <span className="text-[14px] font-bold text-gold">{value}</span>
+              <span className="text-[6px] text-cream/60">{label}</span>
             </div>
-            {/* Tiny chart */}
-            <svg viewBox="0 0 80 24" className="mt-1 h-4 w-full">
+
+            {/* Purple line graph */}
+            <svg viewBox="0 0 80 24" className="mt-1 h-5 w-full">
               <path
-                d="M0 20 L12 16 L24 18 L36 10 L48 12 L60 6 L72 4 L80 2"
+                d="M0 22 L10 18 L20 20 L30 12 L40 14 L50 8 L60 6 L70 4 L80 2"
                 fill="none"
                 stroke="#9d5ef7"
                 strokeWidth="1.5"
@@ -242,12 +210,12 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
                 strokeLinejoin="round"
               />
               <path
-                d="M0 20 L12 16 L24 18 L36 10 L48 12 L60 6 L72 4 L80 2 L80 24 L0 24 Z"
-                fill="url(#purpleGrad)"
+                d="M0 22 L10 18 L20 20 L30 12 L40 14 L50 8 L60 6 L70 4 L80 2 L80 24 L0 24 Z"
+                fill="url(#phonePurpleGrad)"
                 opacity="0.3"
               />
               <defs>
-                <linearGradient id="purpleGrad" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient id="phonePurpleGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stopColor="#9d5ef7" stopOpacity="0.6" />
                   <stop offset="1" stopColor="#9d5ef7" stopOpacity="0" />
                 </linearGradient>
