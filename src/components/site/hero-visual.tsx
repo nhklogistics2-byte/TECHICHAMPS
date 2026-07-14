@@ -1,11 +1,11 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { TrendingUp, BarChart3, Sparkles, ArrowUpRight } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 /**
- * Static (no cursor parallax) hero visual showing a laptop + phone stacked composition.
- * Includes a subtle gentle float animation that respects prefers-reduced-motion.
+ * Static hero visual — laptop showing a mini Techi Champs website + phone showing analytics.
+ * No cursor parallax, no floating panels. Just the laptop + phone composition.
  * Content can be customized per-page via props.
  */
 type HeroVisualProps = {
@@ -39,49 +39,33 @@ export function HeroVisual(props: HeroVisualProps) {
       initial={reduce ? false : { opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mx-auto aspect-[5/5] w-full max-w-[560px]"
+      className="relative mx-auto aspect-[5/4] w-full max-w-[560px]"
     >
-      {/* Studio environment backdrop */}
-      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-b from-white/5 to-transparent ring-1 ring-white/10" />
+      {/* Studio backdrop — subtle, no animation */}
+      <div className="pointer-events-none absolute -right-8 top-8 h-40 w-40 rounded-full bg-gold/20 blur-[80px]" />
+      <div className="pointer-events-none absolute -left-10 bottom-10 h-40 w-40 rounded-full bg-blue-accent/15 blur-[90px]" />
 
-      {/* Soft amber rim lights */}
-      <div className="pointer-events-none absolute -right-10 top-10 h-44 w-44 rounded-full bg-gold/25 blur-[80px]" />
-      <div className="pointer-events-none absolute -left-12 bottom-12 h-44 w-44 rounded-full bg-blue-accent/20 blur-[90px]" />
+      {/* Laptop — centered, shows the Techi Champs website */}
+      <div className="absolute left-1/2 top-[8%] z-30 w-[82%] -translate-x-1/2">
+        <LaptopMockup
+          headline={p.laptopHeadline}
+          subtext={p.laptopSubtext}
+          stat1={p.stat1}
+          stat2={p.stat2}
+          stat3={p.stat3}
+        />
+      </div>
 
-      {/* Floating animation wrapper */}
-      <div className={reduce ? "" : "animate-float-soft-slow"}>
-        {/* Laptop — center */}
-        <div className="absolute left-1/2 top-[14%] z-30 w-[80%] -translate-x-1/2">
-          <LaptopMockup
-            headline={p.laptopHeadline}
-            subtext={p.laptopSubtext}
-            stat1={p.stat1}
-            stat2={p.stat2}
-            stat3={p.stat3}
-          />
-        </div>
-
-        {/* Phone — right */}
-        <div className="absolute right-[2%] top-[34%] z-40 w-[26%] sm:w-[24%]">
-          <PhoneMockup
-            label={p.phoneMetricLabel}
-            value={p.phoneMetricValue}
-          />
-        </div>
-
-        {/* Floating analytics panel — bottom left */}
-        <div className="absolute left-0 top-[58%] z-40 w-[44%]">
-          <AnalyticsPanel />
-        </div>
-
-        {/* Floating AI panel — bottom right */}
-        <div className="absolute right-[4%] bottom-[8%] z-40 w-[42%]">
-          <MiniPanel />
-        </div>
+      {/* Phone — right side, shows analytics */}
+      <div className="absolute right-[0%] top-[30%] z-40 w-[24%]">
+        <PhoneMockup
+          label={p.phoneMetricLabel}
+          value={p.phoneMetricValue}
+        />
       </div>
 
       {/* Status pill — top */}
-      <div className="absolute left-1/2 top-[2%] z-50 -translate-x-1/2">
+      <div className="absolute left-1/2 top-[0%] z-50 -translate-x-1/2">
         <div className="flex items-center gap-2 rounded-full border border-white/15 bg-navy-deep/70 px-3 py-1.5 backdrop-blur">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-60" />
@@ -114,7 +98,7 @@ function LaptopMockup({
     <div className="relative">
       {/* Screen */}
       <div className="relative overflow-hidden rounded-[10px] border border-white/15 bg-navy-deep shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
-        {/* Top bar */}
+        {/* Browser top bar */}
         <div className="flex items-center gap-1.5 border-b border-white/10 bg-navy px-3 py-2">
           <span className="h-1.5 w-1.5 rounded-full bg-cream/30" />
           <span className="h-1.5 w-1.5 rounded-full bg-cream/30" />
@@ -124,39 +108,50 @@ function LaptopMockup({
           </div>
         </div>
 
-        {/* Content */}
-        <div className="relative aspect-[16/10] bg-gradient-to-br from-navy to-navy-deep p-3">
-          {/* Hero block */}
+        {/* Website content — mini Techi Champs site */}
+        <div className="relative aspect-[16/10] bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-3">
+          {/* Site nav bar */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-              <div className="h-3 w-3 rounded-sm bg-gold" />
-              <div className="h-1.5 w-10 rounded-full bg-cream/40" />
+              <div className="flex h-3 w-3 items-center justify-center rounded-sm bg-gold">
+                <span className="text-[6px] font-bold text-white">T</span>
+              </div>
+              <div className="h-1.5 w-12 rounded-full bg-cream/50" />
             </div>
             <div className="flex gap-1.5">
-              <div className="h-1.5 w-6 rounded-full bg-cream/20" />
-              <div className="h-1.5 w-6 rounded-full bg-cream/20" />
-              <div className="h-3 w-10 rounded-full bg-gold" />
+              <div className="h-1.5 w-5 rounded-full bg-cream/20" />
+              <div className="h-1.5 w-5 rounded-full bg-cream/20" />
+              <div className="h-1.5 w-5 rounded-full bg-cream/20" />
+              <div className="h-3 w-8 rounded-full bg-gold" />
             </div>
           </div>
 
-          <div className="mt-4 space-y-1.5">
-            <div className="h-2 w-1.5 rounded-full bg-gold/60" />
-            {lines.map((line, i) => (
-              <div
-                key={i}
-                className={`h-3.5 rounded-full ${
-                  i === 0 ? "w-3/4 bg-cream/70" : "w-2/3 bg-cream/40"
-                }`}
-              />
-            ))}
+          {/* Hero headline */}
+          <div className="mt-4">
+            <div className="h-1.5 w-10 rounded-full bg-gold/70" />
+            <div className="mt-2 space-y-1.5">
+              {lines.map((line, i) => (
+                <div
+                  key={i}
+                  className={`h-3 rounded-full ${
+                    i === 0
+                      ? "w-[85%] bg-cream/85"
+                      : i === 1
+                      ? "w-[70%] bg-gradient-to-r from-gold to-gold-soft"
+                      : "w-[55%] bg-cream/40"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
+          {/* CTA buttons */}
           <div className="mt-3 flex gap-1.5">
-            <div className="h-4 w-16 rounded-full bg-gold" />
-            <div className="h-4 w-12 rounded-full bg-cream/15" />
+            <div className="h-3.5 w-16 rounded-full bg-gold" />
+            <div className="h-3.5 w-12 rounded-full border border-cream/20 bg-cream/5" />
           </div>
 
-          {/* Mini stat row */}
+          {/* Stats row at bottom — like the reference image */}
           <div className="absolute bottom-3 left-3 right-3 grid grid-cols-3 gap-1.5">
             <MiniStat label={stat1.label} value={stat1.value} />
             <MiniStat label={stat2.label} value={stat2.value} />
@@ -171,7 +166,7 @@ function LaptopMockup({
       </div>
 
       {/* Subtext tag */}
-      <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-1 text-[9px] font-semibold text-white">
+      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-1 text-[9px] font-semibold text-white">
         {subtext}
       </div>
     </div>
@@ -195,7 +190,7 @@ function MiniStat({
           : "border-white/10 bg-white/[0.03]"
       }`}
     >
-      <div className="text-[7px] uppercase tracking-wide text-cream/50">
+      <div className="text-[6px] uppercase tracking-wide text-cream/50">
         {label}
       </div>
       <div
@@ -216,7 +211,7 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
         {/* Notch */}
         <div className="absolute left-1/2 top-1.5 h-1 w-8 -translate-x-1/2 rounded-full bg-cream/15" />
 
-        {/* App content */}
+        {/* App content — analytics dashboard */}
         <div className="px-2 pt-5">
           <div className="flex items-center justify-between">
             <div>
@@ -248,11 +243,11 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
               />
               <path
                 d="M0 20 L12 16 L24 18 L36 10 L48 12 L60 6 L72 4 L80 2 L80 24 L0 24 Z"
-                fill="url(#goldGrad2)"
+                fill="url(#purpleGrad)"
                 opacity="0.3"
               />
               <defs>
-                <linearGradient id="goldGrad2" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient id="purpleGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stopColor="#9d5ef7" stopOpacity="0.6" />
                   <stop offset="1" stopColor="#9d5ef7" stopOpacity="0" />
                 </linearGradient>
@@ -282,78 +277,6 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
             </span>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function AnalyticsPanel() {
-  return (
-    <div className="relative rounded-xl border border-white/15 bg-navy-deep/80 p-3 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)] backdrop-blur">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5">
-          <BarChart3 className="h-3 w-3 text-gold" />
-          <span className="text-[9px] font-medium text-cream">Analytics</span>
-        </div>
-        <span className="text-[7px] text-cream/40">Last 30 days</span>
-      </div>
-
-      <div className="mt-2 grid grid-cols-2 gap-1.5">
-        <div className="rounded-md border border-white/10 bg-white/[0.04] p-1.5">
-          <div className="text-[6px] uppercase tracking-wide text-cream/50">
-            Signups
-          </div>
-          <div className="text-[12px] font-semibold text-cream">8,420</div>
-          <div className="text-[6px] text-gold">+156%</div>
-        </div>
-        <div className="rounded-md border border-white/10 bg-white/[0.04] p-1.5">
-          <div className="text-[6px] uppercase tracking-wide text-cream/50">
-            Traffic
-          </div>
-          <div className="text-[12px] font-semibold text-cream">142K</div>
-          <div className="text-[6px] text-gold">+82%</div>
-        </div>
-      </div>
-
-      {/* Bar chart */}
-      <div className="mt-2 flex h-10 items-end gap-0.5">
-        {[40, 55, 35, 70, 45, 80, 60, 95, 75, 100, 85, 90].map((h, i) => (
-          <div
-            key={i}
-            className="flex-1 rounded-t-sm bg-gradient-to-t from-gold/30 to-gold"
-            style={{ height: `${h}%` }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function MiniPanel() {
-  return (
-    <div className="relative rounded-xl border border-white/15 bg-navy-deep/80 p-3 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)] backdrop-blur">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5">
-          <Sparkles className="h-3 w-3 text-gold" />
-          <span className="text-[9px] font-medium text-cream">Outcomes</span>
-        </div>
-        <ArrowUpRight className="h-3 w-3 text-gold" />
-      </div>
-
-      <div className="mt-2 space-y-1.5">
-        {[
-          ["Signups", "+156%"],
-          ["Traffic", "+82%"],
-          ["ROI", "3.6x"],
-        ].map(([k, v]) => (
-          <div
-            key={k}
-            className="flex items-center justify-between rounded-md border border-white/5 bg-white/[0.03] px-1.5 py-1"
-          >
-            <span className="text-[8px] text-cream/70">{k}</span>
-            <span className="text-[9px] font-semibold text-gold">{v}</span>
-          </div>
-        ))}
       </div>
     </div>
   );

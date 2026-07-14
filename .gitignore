@@ -52,3 +52,15 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Runtime database
+/db/
+
+# User uploads
+/upload/
+
+# Download artifacts
+/download/
+
+# Agent browser
+analyze_theme.py
