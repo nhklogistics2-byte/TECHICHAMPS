@@ -108,6 +108,7 @@ export function ProcessPage() {
         description="Six stages, reviewed every week. You always know what's happening, what's next, and what's blocked — no black boxes, no surprises."
         primaryCta={{ label: "Book a Free Consultation" }}
         secondaryCta={{ label: "View Our Work" }}
+        heroImage="/hero-images/process.png"
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"
         phoneMetricLabel="Revenue Growth"

@@ -81,6 +81,7 @@ export function AboutPage() {
         description="We're a small, senior team of strategists, designers, engineers, and marketers who pick a handful of partners each quarter — so we can do our best work and stay accountable to outcomes."
         primaryCta={{ label: "Work With Us" }}
         secondaryCta={{ label: "Meet the Team" }}
+        heroImage="/hero-images/about.png"
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"
         phoneMetricLabel="Revenue Growth"

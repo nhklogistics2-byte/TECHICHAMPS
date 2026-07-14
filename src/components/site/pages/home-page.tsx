@@ -19,6 +19,7 @@ export function HomePage() {
         highlight="Real Business Growth"
         description="Techi Champs partners with ambitious businesses to grow through branding, websites, mobile applications, digital marketing, and AI automation — engineered to convert and built to scale."
         primaryCta={{ label: "Book a Free Consultation" }}
+        heroImage="/hero-images/home.png"
         secondaryCta={{ label: "View Our Work" }}
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"

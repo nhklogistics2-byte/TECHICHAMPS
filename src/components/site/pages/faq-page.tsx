@@ -89,6 +89,7 @@ export function FaqPage() {
         description="Everything you might want to know before booking a call. Still have a question? Just ask us directly — we reply within one business day."
         primaryCta={{ label: "Ask Your Question" }}
         secondaryCta={{ label: "View Services" }}
+        heroImage="/hero-images/faq.png"
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"
         phoneMetricLabel="Revenue Growth"

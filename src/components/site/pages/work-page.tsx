@@ -21,6 +21,7 @@ export function WorkPage() {
         description="We don't chase awards — we chase outcomes. Browse our recent engagements across fintech, healthcare, SaaS, retail, and logistics."
         primaryCta={{ label: "Start Your Project" }}
         secondaryCta={{ label: "View Services" }}
+        heroImage="/hero-images/work.png"
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"
         phoneMetricLabel="Revenue Growth"

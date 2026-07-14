@@ -119,6 +119,7 @@ export function ReviewsPage() {
         description="Real words from real clients — verified across 200+ engagements over the past six years. We let the results speak."
         primaryCta={{ label: "Become Our Next Success Story" }}
         secondaryCta={{ label: "View Our Work" }}
+        heroImage="/hero-images/reviews.png"
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"
         phoneMetricLabel="Revenue Growth"

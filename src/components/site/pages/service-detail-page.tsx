@@ -21,9 +21,6 @@ export function ServiceDetailPage({ service }: { service: ServiceData }) {
   const { navigate } = useRouter();
   const Icon = service.icon;
 
-  // Per-service hero customization
-  const heroContent = getServiceHeroContent(service.slug);
-
   return (
     <>
       <HeroSection
@@ -33,13 +30,7 @@ export function ServiceDetailPage({ service }: { service: ServiceData }) {
         description={service.heroDescription}
         primaryCta={{ label: "Book a Free Consultation" }}
         secondaryCta={{ label: "View Our Work" }}
-        laptopHeadline={heroContent.laptopHeadline}
-        laptopSubtext={heroContent.laptopSubtext}
-        phoneMetricLabel={heroContent.phoneMetricLabel}
-        phoneMetricValue={heroContent.phoneMetricValue}
-        stat1={heroContent.stat1}
-        stat2={heroContent.stat2}
-        stat3={heroContent.stat3}
+        heroImage={`/hero-images/service-${service.slug}.png`}
       />
 
       {/* Breadcrumb */}
@@ -305,19 +296,6 @@ function splitTitle(headline: string): { title: string; highlight?: string } {
     return { title: titleWords, highlight: highlightWords };
   }
   return { title: headline };
-}
-
-// Per-service hero — all use the same reference laptop content
-function getServiceHeroContent(_slug: string) {
-  return {
-    laptopHeadline: "Building Experiences.\nDelivering Results.",
-    laptopSubtext: "Let's Build Together",
-    phoneMetricLabel: "Revenue Growth",
-    phoneMetricValue: "+240%",
-    stat1: { label: "Revenue Growth", value: "250%" },
-    stat2: { label: "Higher Engagement", value: "70%" },
-    stat3: { label: "Operational Efficiency", value: "45%" },
-  };
 }
 
 // Local import to avoid circular dependency issues

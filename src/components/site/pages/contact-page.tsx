@@ -107,6 +107,7 @@ export function ContactPage() {
           document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
         }}}
         secondaryCta={{ label: "View Services" }}
+        heroImage="/hero-images/contact.png"
         laptopHeadline="Building Experiences.\nDelivering Results."
         laptopSubtext="Let's Build Together"
         phoneMetricLabel="Revenue Growth"

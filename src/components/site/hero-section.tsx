@@ -12,8 +12,8 @@ type HeroSectionProps = {
   description: string;
   primaryCta?: { label: string; action?: () => void };
   secondaryCta?: { label: string; href?: string; action?: () => void };
+  heroImage?: string;
   // These props are kept for API compatibility but no longer used
-  // since we now use a generated background image
   laptopHeadline?: string;
   laptopSubtext?: string;
   phoneMetricLabel?: string;
@@ -33,6 +33,7 @@ export function HeroSection({
   description,
   primaryCta,
   secondaryCta,
+  heroImage = "/hero-images/home.png",
   showStats = false,
   stats,
   trustIndicator = false,
@@ -52,7 +53,7 @@ export function HeroSection({
       {/* === Full background image — the generated cinematic hero === */}
       <div className="pointer-events-none absolute inset-0">
         <img
-          src="/hero-bg-generated.png"
+          src={heroImage}
           alt=""
           aria-hidden
           className="h-full w-full object-cover"
