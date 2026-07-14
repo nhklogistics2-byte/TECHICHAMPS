@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { HeroVisual } from "./hero-visual";
 import { useConsultation } from "./consultation-context";
 import { useRouter } from "./page-router";
 
@@ -13,6 +12,8 @@ type HeroSectionProps = {
   description: string;
   primaryCta?: { label: string; action?: () => void };
   secondaryCta?: { label: string; href?: string; action?: () => void };
+  // These props are kept for API compatibility but no longer used
+  // since we now use a generated background image
   laptopHeadline?: string;
   laptopSubtext?: string;
   phoneMetricLabel?: string;
@@ -32,13 +33,6 @@ export function HeroSection({
   description,
   primaryCta,
   secondaryCta,
-  laptopHeadline,
-  laptopSubtext,
-  phoneMetricLabel,
-  phoneMetricValue,
-  stat1,
-  stat2,
-  stat3,
   showStats = false,
   stats,
   trustIndicator = false,
@@ -53,13 +47,30 @@ export function HeroSection({
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-to-b from-navy-deep via-navy to-navy-soft pt-24 pb-16 md:pt-32 md:pb-24"
+      className="relative min-h-[92vh] overflow-hidden bg-navy-deep pt-24 pb-16 md:pt-32 md:pb-24"
     >
-      {/* Background — clean dark gradient matching reference */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep via-navy to-navy-soft" />
+      {/* === Full background image — the generated cinematic hero === */}
+      <div className="pointer-events-none absolute inset-0">
+        <img
+          src="/hero-bg-generated.png"
+          alt=""
+          aria-hidden
+          className="h-full w-full object-cover"
+        />
+        {/* Dark overlay gradient on the left for text readability */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(18,10,36,0.92) 0%, rgba(18,10,36,0.75) 35%, rgba(18,10,36,0.35) 60%, rgba(18,10,36,0.15) 100%)",
+          }}
+        />
+        {/* Bottom fade into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-navy-deep to-transparent" />
+      </div>
 
-      <div className="container-px relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
-        {/* Left column */}
+      {/* === Text content overlaid on left === */}
+      <div className="container-px relative flex min-h-[70vh] items-center">
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -154,17 +165,6 @@ export function HeroSection({
             </div>
           ) : null}
         </motion.div>
-
-        {/* Right column — static hero visual */}
-        <HeroVisual
-          laptopHeadline={laptopHeadline}
-          laptopSubtext={laptopSubtext}
-          phoneMetricLabel={phoneMetricLabel}
-          phoneMetricValue={phoneMetricValue}
-          stat1={stat1}
-          stat2={stat2}
-          stat3={stat3}
-        />
       </div>
     </section>
   );
