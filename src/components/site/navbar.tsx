@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
-  X,
   ChevronDown,
   Palette,
   Globe,
@@ -14,7 +13,6 @@ import {
   Compass,
   ArrowRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,53 +27,23 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useConsultation } from "./consultation-context";
+import { useRouter, type PageType } from "./page-router";
+import { SERVICES } from "@/lib/services-data";
 import { cn } from "@/lib/utils";
 
-const SERVICES = [
-  {
-    icon: Palette,
-    title: "Logo Design & Branding",
-    desc: "Identity systems that earn trust at first glance.",
-  },
-  {
-    icon: Globe,
-    title: "Website Design & Development",
-    desc: "Conversion-focused websites built on modern stacks.",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    desc: "iOS & Android apps engineered to retain users.",
-  },
-  {
-    icon: Megaphone,
-    title: "Digital Marketing",
-    desc: "SEO, paid, content — compounding growth channels.",
-  },
-  {
-    icon: Bot,
-    title: "AI Solutions & Automation",
-    desc: "Practical automations that cut cost-to-serve.",
-  },
-  {
-    icon: Compass,
-    title: "Brand Strategy & Consulting",
-    desc: "Positioning, narrative, and roadmap for scale.",
-  },
-];
-
-const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
+const NAV_ITEMS: { label: string; page: PageType }[] = [
+  { label: "Work", page: { name: "work" } },
+  { label: "Process", page: { name: "process" } },
+  { label: "Reviews", page: { name: "reviews" } },
+  { label: "About", page: { name: "about" } },
+  { label: "FAQ", page: { name: "faq" } },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { openConsultation } = useConsultation();
+  const { page, navigate } = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -83,6 +51,12 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isActive = (target: PageType) => {
+    if (target.name === "home" && page.name === "home") return true;
+    if (target.name === page.name) return true;
+    return false;
+  };
 
   return (
     <header
@@ -95,8 +69,8 @@ export function Navbar() {
     >
       <div className="container-px flex h-16 items-center justify-between md:h-20">
         {/* Logo */}
-        <a
-          href="#top"
+        <button
+          onClick={() => navigate({ name: "home" })}
           className="group flex items-center gap-2.5 focus-premium rounded-md"
           aria-label="Techi Champs home"
         >
@@ -112,14 +86,19 @@ export function Navbar() {
               Digital Growth Studio
             </span>
           </span>
-        </a>
+        </button>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
-                className="group inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-cream/80 transition-colors hover:text-cream focus-premium"
+                className={cn(
+                  "group inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors focus-premium",
+                  page.name === "service"
+                    ? "text-cream"
+                    : "text-cream/80 hover:text-cream"
+                )}
                 aria-label="Services menu"
               >
                 Services
@@ -134,22 +113,22 @@ export function Navbar() {
               <div className="grid grid-cols-2 gap-1.5">
                 {SERVICES.map((s) => (
                   <DropdownMenuItem
-                    key={s.title}
+                    key={s.slug}
                     asChild
                     className="group rounded-xl p-3 focus:bg-navy/5"
                   >
-                    <a
-                      href="#services"
-                      className="flex items-start gap-3"
+                    <button
+                      onClick={() => navigate({ name: "service", slug: s.slug })}
+                      className="flex items-start gap-3 text-left"
                     >
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-navy/5 text-navy transition-colors group-hover:bg-gold/15 group-hover:text-gold-deep">
                         <s.icon className="h-4 w-4" strokeWidth={1.75} />
                       </span>
                       <span className="flex flex-col gap-0.5">
                         <span className="text-sm font-medium text-navy">{s.title}</span>
-                        <span className="text-xs text-mist">{s.desc}</span>
+                        <span className="text-xs text-mist">{s.tagline}</span>
                       </span>
-                    </a>
+                    </button>
                   </DropdownMenuItem>
                 ))}
               </div>
@@ -173,22 +152,46 @@ export function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="relative rounded-full px-4 py-2 text-sm font-medium text-cream/80 transition-colors hover:text-cream focus-premium"
+          {NAV_ITEMS.map((link) => (
+            <button
+              key={link.label}
+              onClick={() => navigate(link.page)}
+              className={cn(
+                "relative rounded-full px-4 py-2 text-sm font-medium transition-colors focus-premium",
+                isActive(link.page)
+                  ? "text-cream"
+                  : "text-cream/80 hover:text-cream"
+              )}
             >
               {link.label}
-            </a>
+              {isActive(link.page) && (
+                <motion.span
+                  layoutId="nav-active"
+                  className="absolute inset-x-3 -bottom-0.5 h-px bg-gold"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </button>
           ))}
 
-          <a
-            href="#contact"
-            className="rounded-full px-4 py-2 text-sm font-medium text-cream/80 transition-colors hover:text-cream focus-premium"
+          <button
+            onClick={() => navigate({ name: "contact" })}
+            className={cn(
+              "relative rounded-full px-4 py-2 text-sm font-medium transition-colors focus-premium",
+              isActive({ name: "contact" })
+                ? "text-cream"
+                : "text-cream/80 hover:text-cream"
+            )}
           >
             Contact
-          </a>
+            {isActive({ name: "contact" }) && (
+              <motion.span
+                layoutId="nav-active"
+                className="absolute inset-x-3 -bottom-0.5 h-px bg-gold"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+          </button>
         </nav>
 
         {/* Desktop CTA */}
@@ -222,27 +225,34 @@ export function Navbar() {
               </SheetTitle>
             </SheetHeader>
             <div className="flex h-[calc(100%-80px)] flex-col overflow-y-auto px-6 py-6 scrollbar-premium">
-              <MobileAccordionSection title="Services" items={SERVICES} />
+              <MobileAccordionSection
+                title="Services"
+                items={SERVICES.map((s) => ({
+                  slug: s.slug,
+                  title: s.title,
+                  icon: s.icon,
+                }))}
+                onNavigate={(slug) => {
+                  setMobileOpen(false);
+                  navigate({ name: "service", slug });
+                }}
+              />
               <div className="mt-2 space-y-1">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium text-cream/85 transition-colors hover:bg-white/5"
-                  >
-                    {link.label}
-                    <ArrowRight className="h-4 w-4 text-gold/70" />
-                  </a>
-                ))}
-                <a
-                  href="#contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium text-cream/85 transition-colors hover:bg-white/5"
-                >
-                  Contact
-                  <ArrowRight className="h-4 w-4 text-gold/70" />
-                </a>
+                {[...NAV_ITEMS, { label: "Contact", page: { name: "contact" as const } }].map(
+                  (link) => (
+                    <button
+                      key={link.label}
+                      onClick={() => {
+                        setMobileOpen(false);
+                        navigate(link.page);
+                      }}
+                      className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-medium text-cream/85 transition-colors hover:bg-white/5"
+                    >
+                      {link.label}
+                      <ArrowRight className="h-4 w-4 text-gold/70" />
+                    </button>
+                  )
+                )}
               </div>
 
               <div className="mt-auto pt-6">
@@ -271,9 +281,11 @@ export function Navbar() {
 function MobileAccordionSection({
   title,
   items,
+  onNavigate,
 }: {
   title: string;
-  items: typeof SERVICES;
+  items: { slug: string; title: string; icon: typeof Palette }[];
+  onNavigate: (slug: string) => void;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -301,14 +313,14 @@ function MobileAccordionSection({
           >
             <div className="space-y-1 px-2 pb-3">
               {items.map((s) => (
-                <a
-                  key={s.title}
-                  href="#services"
-                  className="flex items-start gap-3 rounded-lg p-2.5 hover:bg-white/5"
+                <button
+                  key={s.slug}
+                  onClick={() => onNavigate(s.slug)}
+                  className="flex w-full items-start gap-3 rounded-lg p-2.5 text-left hover:bg-white/5"
                 >
                   <s.icon className="mt-0.5 h-4 w-4 text-gold" strokeWidth={1.75} />
                   <span className="text-sm text-cream/85">{s.title}</span>
-                </a>
+                </button>
               ))}
             </div>
           </motion.div>

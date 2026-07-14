@@ -3,29 +3,22 @@
 import { useState } from "react";
 import { Loader2, Mail, Phone, MapPin, ArrowRight, Check } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter, type PageType } from "./page-router";
+import { SERVICES } from "@/lib/services-data";
 
-const SERVICES = [
-  "Logo Design & Branding",
-  "Website Design & Development",
-  "Mobile App Development",
-  "Digital Marketing",
-  "AI Solutions & Automation",
-  "Brand Strategy & Consulting",
-];
-
-const COMPANY = [
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-  { label: "FAQ", href: "#faq" },
+const COMPANY_LINKS: { label: string; page: PageType }[] = [
+  { label: "Work", page: { name: "work" } },
+  { label: "Process", page: { name: "process" } },
+  { label: "Reviews", page: { name: "reviews" } },
+  { label: "About", page: { name: "about" } },
+  { label: "Contact", page: { name: "contact" } },
+  { label: "FAQ", page: { name: "faq" } },
 ];
 
 const RESOURCES = [
   { label: "Insights Journal", href: "#" },
-  { label: "Case Studies", href: "#work" },
-  { label: "Free Brand Audit", href: "#contact" },
+  { label: "Case Studies", page: { name: "work" as const } },
+  { label: "Free Brand Audit", page: { name: "contact" as const } },
   { label: "Growth Playbook", href: "#" },
 ];
 
@@ -71,6 +64,7 @@ const SOCIALS = [
 export function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
+  const { navigate } = useRouter();
 
   const onSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,7 +97,11 @@ export function Footer() {
         <div className="grid gap-10 pb-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Brand + newsletter */}
           <div>
-            <a href="#top" className="flex items-center gap-2.5" aria-label="Techi Champs home">
+            <button
+              onClick={() => navigate({ name: "home" })}
+              className="flex items-center gap-2.5"
+              aria-label="Techi Champs home"
+            >
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-deep text-navy-deep">
                 <span className="font-serif-display text-lg font-bold">T</span>
               </span>
@@ -115,7 +113,7 @@ export function Footer() {
                   Digital Growth Studio
                 </span>
               </span>
-            </a>
+            </button>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/55 text-pretty">
               We help ambitious businesses grow through branding, websites, mobile
               apps, digital marketing, and AI automation — engineered to convert and
@@ -163,27 +161,27 @@ export function Footer() {
           {/* Services */}
           <FooterColumn title="Services">
             {SERVICES.map((s) => (
-              <li key={s}>
-                <a
-                  href="#services"
-                  className="text-cream/60 transition-colors hover:text-gold focus-premium"
+              <li key={s.slug}>
+                <button
+                  onClick={() => navigate({ name: "service", slug: s.slug })}
+                  className="text-left text-cream/60 transition-colors hover:text-gold focus-premium"
                 >
-                  {s}
-                </a>
+                  {s.title}
+                </button>
               </li>
             ))}
           </FooterColumn>
 
           {/* Company */}
           <FooterColumn title="Company">
-            {COMPANY.map((c) => (
+            {COMPANY_LINKS.map((c) => (
               <li key={c.label}>
-                <a
-                  href={c.href}
-                  className="text-cream/60 transition-colors hover:text-gold focus-premium"
+                <button
+                  onClick={() => navigate(c.page)}
+                  className="text-left text-cream/60 transition-colors hover:text-gold focus-premium"
                 >
                   {c.label}
-                </a>
+                </button>
               </li>
             ))}
           </FooterColumn>
@@ -193,12 +191,21 @@ export function Footer() {
             <FooterColumn title="Resources">
               {RESOURCES.map((r) => (
                 <li key={r.label}>
-                  <a
-                    href={r.href}
-                    className="text-cream/60 transition-colors hover:text-gold focus-premium"
-                  >
-                    {r.label}
-                  </a>
+                  {"page" in r && r.page ? (
+                    <button
+                      onClick={() => navigate(r.page as PageType)}
+                      className="text-left text-cream/60 transition-colors hover:text-gold focus-premium"
+                    >
+                      {r.label}
+                    </button>
+                  ) : (
+                    <a
+                      href={r.href}
+                      className="text-cream/60 transition-colors hover:text-gold focus-premium"
+                    >
+                      {r.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </FooterColumn>
