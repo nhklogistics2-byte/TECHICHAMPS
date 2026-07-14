@@ -167,7 +167,7 @@ export function ReviewsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, delay: (i % 3) * 0.08 }}
-                className="group relative flex flex-col rounded-2xl border border-border/70 bg-card p-6 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(11,26,46,0.25)]"
+                className="group relative flex flex-col rounded-2xl border border-border/70 bg-card p-6 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(26,16,49,0.25)]"
               >
                 <Quote className="absolute right-4 top-4 h-8 w-8 text-gold/15" />
 

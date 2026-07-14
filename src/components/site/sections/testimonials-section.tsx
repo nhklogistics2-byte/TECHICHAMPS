@@ -113,7 +113,7 @@ export function TestimonialsSection() {
           aria-roledescription="carousel"
           aria-label="Testimonials"
         >
-          <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card p-8 shadow-[0_30px_70px_-40px_rgba(11,26,46,0.3)] sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card p-8 shadow-[0_30px_70px_-40px_rgba(26,16,49,0.3)] sm:p-12">
             <span className="pointer-events-none absolute right-6 top-2 select-none font-serif-display text-[8rem] leading-none text-gold/15">
               &ldquo;
             </span>

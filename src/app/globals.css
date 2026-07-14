@@ -40,7 +40,7 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
-  /* Brand tokens */
+  /* Brand tokens — purple theme (names kept for backward compat) */
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-navy-soft: var(--navy-soft);
@@ -63,73 +63,80 @@
 :root {
   --radius: 0.75rem;
 
-  /* Brand palette */
-  --navy: #0b1a2e;
-  --navy-deep: #071324;
-  --navy-soft: #112338;
-  --cream: #f7f4ee;
-  --cream-soft: #faf8f3;
-  --gold: #c9a862;
-  --gold-soft: #ddb87a;
-  --gold-deep: #a8884a;
-  --ink: #16223a;
-  --mist: #5c6678;
-  --mist-soft: #8a93a5;
-  --blue-accent: #3a6fb0;
+  /* ===== Purple Brand Palette ===== */
+  /* "navy" tokens = dark purple backgrounds */
+  --navy: #1a1031;          /* main dark purple */
+  --navy-deep: #120a24;     /* deepest purple */
+  --navy-soft: #221b47;     /* lighter dark purple */
 
-  /* shadcn tokens mapped to brand */
-  --background: #f7f4ee;
-  --foreground: #16223a;
+  /* "cream" tokens = white / off-white */
+  --cream: #ffffff;
+  --cream-soft: #faf9ff;
+
+  /* "gold" tokens = vibrant purple accent */
+  --gold: #7e3af2;          /* vibrant purple — primary accent */
+  --gold-soft: #9d5ef7;     /* lighter purple for hover */
+  --gold-deep: #6a2ce7;     /* deeper purple */
+
+  /* Text colors */
+  --ink: #1a1031;           /* dark text on light bg */
+  --mist: #5c5470;          /* muted body text */
+  --mist-soft: #8a8499;     /* softer muted text */
+  --blue-accent: #a78bfa;   /* light purple secondary accent */
+
+  /* shadcn tokens mapped to purple theme */
+  --background: #ffffff;
+  --foreground: #1a1031;
   --card: #ffffff;
-  --card-foreground: #16223a;
+  --card-foreground: #1a1031;
   --popover: #ffffff;
-  --popover-foreground: #16223a;
-  --primary: #0b1a2e;
-  --primary-foreground: #f7f4ee;
-  --secondary: #ede7da;
-  --secondary-foreground: #16223a;
-  --muted: #efe9dc;
-  --muted-foreground: #5c6678;
-  --accent: #c9a862;
-  --accent-foreground: #16223a;
+  --popover-foreground: #1a1031;
+  --primary: #1a1031;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f1fb;
+  --secondary-foreground: #1a1031;
+  --muted: #f4f1fb;
+  --muted-foreground: #5c5470;
+  --accent: #7e3af2;
+  --accent-foreground: #ffffff;
   --destructive: #b3261e;
-  --border: #e3ddcf;
-  --input: #e3ddcf;
-  --ring: #c9a862;
-  --chart-1: #c9a862;
-  --chart-2: #3a6fb0;
-  --chart-3: #16223a;
-  --chart-4: #ddb87a;
-  --chart-5: #8a93a5;
+  --border: #ece8f5;
+  --input: #ece8f5;
+  --ring: #7e3af2;
+  --chart-1: #7e3af2;
+  --chart-2: #a78bfa;
+  --chart-3: #1a1031;
+  --chart-4: #9d5ef7;
+  --chart-5: #8a8499;
   --sidebar: #ffffff;
-  --sidebar-foreground: #16223a;
-  --sidebar-primary: #0b1a2e;
-  --sidebar-primary-foreground: #f7f4ee;
-  --sidebar-accent: #ede7da;
-  --sidebar-accent-foreground: #16223a;
-  --sidebar-border: #e3ddcf;
-  --sidebar-ring: #c9a862;
+  --sidebar-foreground: #1a1031;
+  --sidebar-primary: #1a1031;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f4f1fb;
+  --sidebar-accent-foreground: #1a1031;
+  --sidebar-border: #ece8f5;
+  --sidebar-ring: #7e3af2;
 }
 
 .dark {
-  --background: #071324;
-  --foreground: #f5f5f0;
-  --card: #0b1a2e;
-  --card-foreground: #f5f5f0;
-  --popover: #0b1a2e;
-  --popover-foreground: #f5f5f0;
-  --primary: #c9a862;
-  --primary-foreground: #071324;
-  --secondary: #112338;
-  --secondary-foreground: #f5f5f0;
-  --muted: #112338;
-  --muted-foreground: #a4b0c2;
-  --accent: #c9a862;
-  --accent-foreground: #071324;
+  --background: #120a24;
+  --foreground: #f5f3ff;
+  --card: #1a1031;
+  --card-foreground: #f5f3ff;
+  --popover: #1a1031;
+  --popover-foreground: #f5f3ff;
+  --primary: #7e3af2;
+  --primary-foreground: #120a24;
+  --secondary: #221b47;
+  --secondary-foreground: #f5f3ff;
+  --muted: #221b47;
+  --muted-foreground: #b8b0d0;
+  --accent: #7e3af2;
+  --accent-foreground: #120a24;
   --destructive: #f06262;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.12);
-  --ring: #c9a862;
+  --ring: #7e3af2;
 }
 
 @layer base {
@@ -144,7 +151,7 @@
     font-feature-settings: "ss01", "cv11";
   }
   ::selection {
-    background-color: rgba(201, 168, 98, 0.25);
+    background-color: rgba(126, 58, 242, 0.25);
     color: inherit;
   }
 }
@@ -182,10 +189,10 @@
   }
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 24px 50px -24px rgba(11, 26, 46, 0.18);
+    box-shadow: 0 24px 50px -24px rgba(26, 16, 49, 0.18);
   }
 
-  /* Subtle gold underline reveal */
+  /* Subtle underline reveal */
   .link-underline {
     @apply relative inline-flex items-center gap-1.5 text-sm font-medium;
   }
@@ -254,11 +261,11 @@
     background: transparent;
   }
   .scrollbar-premium::-webkit-scrollbar-thumb {
-    background: rgba(201, 168, 98, 0.3);
+    background: rgba(126, 58, 242, 0.3);
     border-radius: 9999px;
   }
   .scrollbar-premium::-webkit-scrollbar-thumb:hover {
-    background: rgba(201, 168, 98, 0.5);
+    background: rgba(126, 58, 242, 0.5);
   }
 
   /* Premium focus ring */
@@ -285,10 +292,10 @@
 /* Premium button styles */
 @layer components {
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy-deep transition-all duration-300 hover:bg-gold-soft hover:shadow-[0_12px_30px_-10px_rgba(201,168,98,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-gold-soft hover:shadow-[0_12px_30px_-10px_rgba(126,58,242,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
   }
   .btn-navy {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-cream transition-all duration-300 hover:bg-navy-soft hover:shadow-[0_12px_30px_-12px_rgba(11,26,46,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-cream transition-all duration-300 hover:bg-navy-soft hover:shadow-[0_12px_30px_-12px_rgba(26,16,49,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy;
   }
   .btn-outline-light {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-cream backdrop-blur transition-all duration-300 hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;

@@ -102,7 +102,7 @@ export function Footer() {
               className="flex items-center gap-2.5"
               aria-label="Techi Champs home"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-deep text-navy-deep">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-deep text-white">
                 <span className="font-serif-display text-lg font-bold">T</span>
               </span>
               <span className="flex flex-col leading-none">
@@ -141,7 +141,7 @@ export function Footer() {
                   type="submit"
                   disabled={status === "loading"}
                   aria-label="Subscribe"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-gold text-navy-deep transition-colors hover:bg-gold-soft disabled:opacity-60"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-gold text-white transition-colors hover:bg-gold-soft disabled:opacity-60"
                 >
                   {status === "loading" ? (
                     <Loader2 className="h-4 w-4 animate-spin" />

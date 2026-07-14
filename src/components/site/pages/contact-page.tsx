@@ -176,7 +176,7 @@ export function ContactPage() {
             </div>
 
             {/* Right — form */}
-            <div className="rounded-3xl border border-border/70 bg-card p-6 shadow-[0_30px_70px_-50px_rgba(11,26,46,0.3)] sm:p-8">
+            <div className="rounded-3xl border border-border/70 bg-card p-6 shadow-[0_30px_70px_-50px_rgba(26,16,49,0.3)] sm:p-8">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center gap-5 py-12 text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold/15 text-gold">

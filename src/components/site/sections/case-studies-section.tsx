@@ -59,7 +59,7 @@ export function CaseStudiesSection({
               className={`group relative flex flex-col overflow-hidden rounded-2xl border transition-all duration-500 ${
                 bg === "navy"
                   ? "border-white/10 bg-navy-soft/60 hover:border-gold/30 hover:bg-navy-soft"
-                  : "border-border/70 bg-card hover:border-gold/40 hover:shadow-[0_30px_60px_-30px_rgba(11,26,46,0.25)]"
+                  : "border-border/70 bg-card hover:border-gold/40 hover:shadow-[0_30px_60px_-30px_rgba(26,16,49,0.25)]"
               }`}
             >
               {/* Image */}

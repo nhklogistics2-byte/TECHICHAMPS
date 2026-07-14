@@ -33,7 +33,7 @@ export function ServicesSection() {
                 delay: i * 0.05,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group relative h-full overflow-hidden rounded-2xl border border-border/70 bg-card p-7 text-left transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_30px_60px_-30px_rgba(11,26,46,0.25)] focus-premium"
+              className="group relative h-full overflow-hidden rounded-2xl border border-border/70 bg-card p-7 text-left transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_30px_60px_-30px_rgba(26,16,49,0.25)] focus-premium"
             >
               {/* Gold accent border reveal */}
               <span className="pointer-events-none absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-gold to-transparent transition-transform duration-500 group-hover:scale-x-100" />

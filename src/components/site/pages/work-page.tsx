@@ -48,7 +48,7 @@ export function WorkPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-                className={`group grid gap-0 overflow-hidden rounded-3xl border border-border/70 bg-card transition-all duration-500 hover:border-gold/40 hover:shadow-[0_30px_70px_-40px_rgba(11,26,46,0.3)] lg:grid-cols-2 ${
+                className={`group grid gap-0 overflow-hidden rounded-3xl border border-border/70 bg-card transition-all duration-500 hover:border-gold/40 hover:shadow-[0_30px_70px_-40px_rgba(26,16,49,0.3)] lg:grid-cols-2 ${
                   i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
                 }`}
               >

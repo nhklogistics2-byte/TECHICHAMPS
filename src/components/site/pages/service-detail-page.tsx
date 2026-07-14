@@ -144,7 +144,7 @@ export function ServiceDetailPage({ service }: { service: ServiceData }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, delay: i * 0.05 }}
-                className="group rounded-2xl border border-border/70 bg-card p-6 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(11,26,46,0.25)]"
+                className="group rounded-2xl border border-border/70 bg-card p-6 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(26,16,49,0.25)]"
               >
                 <div className="flex items-center gap-2.5">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/12 text-gold-deep">
@@ -263,7 +263,7 @@ export function ServiceDetailPage({ service }: { service: ServiceData }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.55, delay: i * 0.08 }}
-                  className="group rounded-2xl border border-border/70 bg-card p-6 text-left transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(11,26,46,0.25)] focus-premium"
+                  className="group rounded-2xl border border-border/70 bg-card p-6 text-left transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(26,16,49,0.25)] focus-premium"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy/[0.04] text-navy transition-colors duration-500 group-hover:bg-gold/12 group-hover:text-gold-deep">
                     <RelIcon className="h-4 w-4" strokeWidth={1.6} />

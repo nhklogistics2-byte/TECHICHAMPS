@@ -145,7 +145,7 @@ function StepBadge({
         />
       </motion.div>
       <span
-        className={`absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-gold text-[9px] font-bold text-navy-deep ${
+        className={`absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-gold text-[9px] font-bold text-white ${
           compact ? "h-4 w-4" : "h-5 w-5"
         }`}
       >

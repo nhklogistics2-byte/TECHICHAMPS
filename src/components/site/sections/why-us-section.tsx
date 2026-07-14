@@ -68,7 +68,7 @@ export function WhyUsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute -bottom-6 -right-4 w-[280px] rounded-2xl border border-border/60 bg-card p-5 shadow-[0_30px_60px_-30px_rgba(11,26,46,0.4)] sm:right-6"
+            className="absolute -bottom-6 -right-4 w-[280px] rounded-2xl border border-border/60 bg-card p-5 shadow-[0_30px_60px_-30px_rgba(26,16,49,0.4)] sm:right-6"
           >
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/15 text-gold-deep">
@@ -105,7 +105,7 @@ export function WhyUsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, delay: i * 0.08 }}
-                className="group relative rounded-2xl border border-border/70 bg-card p-6 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(11,26,46,0.3)]"
+                className="group relative rounded-2xl border border-border/70 bg-card p-6 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_24px_50px_-30px_rgba(26,16,49,0.3)]"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy/[0.04] text-navy transition-colors duration-500 group-hover:bg-gold/12 group-hover:text-gold-deep">
                   <r.icon className="h-5 w-5" strokeWidth={1.6} />

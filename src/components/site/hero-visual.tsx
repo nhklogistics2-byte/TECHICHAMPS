@@ -171,7 +171,7 @@ function LaptopMockup({
       </div>
 
       {/* Subtext tag */}
-      <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-1 text-[9px] font-semibold text-navy-deep">
+      <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-1 text-[9px] font-semibold text-white">
         {subtext}
       </div>
     </div>
@@ -241,7 +241,7 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
               <path
                 d="M0 20 L12 16 L24 18 L36 10 L48 12 L60 6 L72 4 L80 2"
                 fill="none"
-                stroke="#ddb87a"
+                stroke="#9d5ef7"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -253,8 +253,8 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
               />
               <defs>
                 <linearGradient id="goldGrad2" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#ddb87a" stopOpacity="0.6" />
-                  <stop offset="1" stopColor="#ddb87a" stopOpacity="0" />
+                  <stop offset="0" stopColor="#9d5ef7" stopOpacity="0.6" />
+                  <stop offset="1" stopColor="#9d5ef7" stopOpacity="0" />
                 </linearGradient>
               </defs>
             </svg>
@@ -277,7 +277,7 @@ function PhoneMockup({ label, value }: { label: string; value: string }) {
           </div>
 
           <div className="mt-2 rounded-md bg-gold p-1.5 text-center">
-            <span className="text-[8px] font-semibold text-navy-deep">
+            <span className="text-[8px] font-semibold text-white">
               Upgrade plan
             </span>
           </div>

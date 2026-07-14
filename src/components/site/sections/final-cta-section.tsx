@@ -26,7 +26,7 @@ export function FinalCtaSection() {
               className="absolute inset-0 animate-drift opacity-[0.18]"
               style={{
                 backgroundImage:
-                  "linear-gradient(rgba(201,168,98,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,98,0.18) 1px, transparent 1px)",
+                  "linear-gradient(rgba(126,58,242,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(126,58,242,0.18) 1px, transparent 1px)",
                 backgroundSize: "80px 80px",
                 maskImage:
                   "radial-gradient(ellipse at center, black 30%, transparent 75%)",
@@ -43,9 +43,9 @@ export function FinalCtaSection() {
             >
               <defs>
                 <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stopColor="#c9a862" stopOpacity="0" />
-                  <stop offset="0.5" stopColor="#c9a862" stopOpacity="0.35" />
-                  <stop offset="1" stopColor="#c9a862" stopOpacity="0" />
+                  <stop offset="0" stopColor="#7e3af2" stopOpacity="0" />
+                  <stop offset="0.5" stopColor="#7e3af2" stopOpacity="0.35" />
+                  <stop offset="1" stopColor="#7e3af2" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <motion.path

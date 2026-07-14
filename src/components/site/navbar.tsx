@@ -74,7 +74,7 @@ export function Navbar() {
           className="group flex items-center gap-2.5 focus-premium rounded-md"
           aria-label="Techi Champs home"
         >
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-deep text-navy-deep shadow-[0_4px_18px_-6px_rgba(201,168,98,0.6)]">
+          <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-deep text-white shadow-[0_4px_18px_-6px_rgba(126,58,242,0.6)]">
             <span className="font-serif-display text-lg font-bold">T</span>
             <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-cream ring-2 ring-navy-deep" />
           </span>
