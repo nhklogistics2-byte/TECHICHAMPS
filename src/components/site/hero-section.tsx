@@ -55,23 +55,8 @@ export function HeroSection({
       id="top"
       className="relative overflow-hidden bg-gradient-to-b from-navy-deep via-navy to-navy-soft pt-24 pb-16 md:pt-32 md:pb-24"
     >
-      {/* Background ambient — static, no interactivity */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-gold/10 blur-[140px]" />
-        <div className="absolute -left-32 top-1/3 h-[360px] w-[360px] rounded-full bg-blue-accent/10 blur-[120px]" />
-        <div
-          className="absolute inset-0 opacity-[0.18]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            maskImage:
-              "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-          }}
-        />
-      </div>
+      {/* Background — clean dark gradient matching reference */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep via-navy to-navy-soft" />
 
       <div className="container-px relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
         {/* Left column */}
