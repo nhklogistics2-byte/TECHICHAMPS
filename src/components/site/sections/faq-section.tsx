@@ -6,8 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SectionHeader } from "./services";
-import { useConsultation } from "./consultation-context";
+import { SectionHeader } from "./services-section";
+import { useConsultation } from "../consultation-context";
 import { ArrowRight } from "lucide-react";
 
 const FAQS = [
@@ -45,7 +45,7 @@ const FAQS = [
   },
 ];
 
-export function FAQ() {
+export function FaqSection() {
   const { openConsultation } = useConsultation();
   return (
     <section id="faq" className="relative bg-cream-soft py-24 md:py-32">

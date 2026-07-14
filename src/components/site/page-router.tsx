@@ -53,12 +53,11 @@ function toHash(page: PageType): string {
 }
 
 export function RouterProvider({ children }: { children: ReactNode }) {
-  const [page, setPage] = useState<PageType>({ name: "home" });
-
-  // Initialize from hash on mount
-  useEffect(() => {
-    setPage(parseHash());
-  }, []);
+  // Initialize from hash on mount (lazy initializer avoids setState-in-effect)
+  const [page, setPage] = useState<PageType>(() => {
+    if (typeof window === "undefined") return { name: "home" };
+    return parseHash();
+  });
 
   // Listen to hashchange (back/forward buttons)
   useEffect(() => {

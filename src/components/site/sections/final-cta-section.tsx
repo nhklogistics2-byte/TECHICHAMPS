@@ -2,11 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ShieldCheck } from "lucide-react";
-import { useConsultation } from "./consultation-context";
+import { useConsultation } from "../consultation-context";
+import { useRouter } from "../page-router";
 
-export function FinalCTA() {
+export function FinalCtaSection() {
   const reduce = useReducedMotion();
   const { openConsultation } = useConsultation();
+  const { navigate } = useRouter();
 
   return (
     <section id="contact" className="relative bg-cream-soft py-20 md:py-28">
@@ -20,7 +22,6 @@ export function FinalCTA() {
         >
           {/* Subtle animated background pattern */}
           <div className="pointer-events-none absolute inset-0">
-            {/* Slow drifting line pattern */}
             <div
               className="absolute inset-0 animate-drift opacity-[0.18]"
               style={{
@@ -34,7 +35,6 @@ export function FinalCTA() {
               }}
             />
 
-            {/* Soft flowing wave — extremely slow */}
             <svg
               className="absolute bottom-0 left-0 w-full"
               viewBox="0 0 1440 200"
@@ -51,7 +51,6 @@ export function FinalCTA() {
               <motion.path
                 d="M0 120 C 240 180, 480 60, 720 110 C 960 160, 1200 80, 1440 130 L 1440 200 L 0 200 Z"
                 fill="url(#waveGrad)"
-                initial={reduce ? false : { pathLength: 0 }}
                 animate={
                   reduce
                     ? {}
@@ -71,7 +70,6 @@ export function FinalCTA() {
               />
             </svg>
 
-            {/* Glow */}
             <div className="absolute left-1/2 top-0 h-72 w-[640px] -translate-x-1/2 rounded-full bg-gold/12 blur-[120px]" />
           </div>
 
@@ -96,9 +94,12 @@ export function FinalCTA() {
                 Book a Free Consultation
                 <ArrowRight className="h-4 w-4" />
               </button>
-              <a href="#services" className="btn-outline-light h-12 px-7 text-[15px]">
+              <button
+                onClick={() => navigate({ name: "work" })}
+                className="btn-outline-light h-12 px-7 text-[15px]"
+              >
                 Explore Services
-              </a>
+              </button>
             </div>
 
             <p className="mt-6 inline-flex items-center gap-2 text-xs text-cream/55">

@@ -13,7 +13,7 @@ const BRANDS = [
   "Orbit Logistics",
 ];
 
-export function TrustedBrands() {
+export function TrustedBrandsSection() {
   return (
     <section
       aria-label="Trusted brands"
@@ -25,7 +25,6 @@ export function TrustedBrands() {
         </p>
 
         <div className="marquee-container relative overflow-hidden">
-          {/* Edge fades */}
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-navy-deep to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-navy-deep to-transparent" />
 
