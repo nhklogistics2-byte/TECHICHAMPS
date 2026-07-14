@@ -28,10 +28,10 @@ export function HeroVisual(_props: HeroVisualProps) {
       transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       className="relative mx-auto w-full max-w-[600px]"
     >
-      {/* The reference image — laptop + phone showing Techi Champs website */}
+      {/* The cropped reference image — hero section only (laptop + phone) */}
       <div className="relative overflow-hidden rounded-2xl">
         <img
-          src="/hero-reference.png"
+          src="/hero-cropped.png"
           alt="Techi Champs website displayed on laptop and phone — Building Experiences, Delivering Results"
           className="w-full h-auto object-cover"
           priority
